@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* ── Custom theme tokens (Tailwind v4) ── */
+@theme {
+  --color-gold:        #c8a96e;
+  --color-gold-light:  #e2c992;
+  --color-gold-dark:   #9a7b43;
+  --color-navy:        #0b1522;
+  --color-navy-mid:    #132038;
+  --color-navy-light:  #1e3255;
+  --color-cream:       #f5ede0;
+  --color-cream-dark:  #e6d5be;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body:    "Jost", system-ui, sans-serif;
+}
+
+/* ── Base ── */
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: var(--font-body);
+  background-color: var(--color-navy);
+  color: var(--color-cream);
+  overflow-x: hidden;
+}
+::selection { background: var(--color-gold); color: var(--color-navy); }
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-navy); }
+::-webkit-scrollbar-thumb { background: var(--color-gold-dark); border-radius: 2px; }
+
+/* ── Global keyframes ── */
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12); }
+}
+@keyframes scrollBob {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+/* ── Utility helpers ── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.text-muted   { color: rgba(245, 237, 224, 0.55); }
+.border-gold-dim { border-color: rgba(200, 169, 110, 0.22); }
